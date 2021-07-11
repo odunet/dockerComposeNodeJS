@@ -1,0 +1,24 @@
+services:
+  lb:
+    image: haproxy
+    ports:
+      - '8080:8080'
+    volumes:
+      #- ./haproxy:/usr/local/etc/haproxy
+      - ./haproxy/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro
+  nodeyoutube1:
+    image: nodeyoutube
+    environment:
+      - APPID=1111
+  nodeyoutube2:
+    image: nodeyoutube
+    environment:
+      - APPID=2222
+  nodeyoutube3:
+    image: nodeyoutube
+    environment:
+      - APPID=3333
+  nodeyoutube4:
+    image: nodeyoutube
+    environment:
+      - APPID=4444
